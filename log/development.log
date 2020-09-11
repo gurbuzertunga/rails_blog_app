@@ -3630,3 +3630,126 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 58ms (Views: 56.1ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/tags" for ::1 at 2020-09-11 17:24:44 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TagsController#index as HTML
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (2.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:5
+  Rendered tags/index.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 901ms (Views: 868.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/articles" for ::1 at 2020-09-11 17:24:49 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 156ms (Views: 139.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/articles/3" for ::1 at 2020-09-11 17:24:51 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 3]]
+  ↳ app/views/articles/show.html.erb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 3]]
+  ↳ app/views/articles/show.html.erb:14
+  Rendered collection of articles/_comment.html.erb [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (37.2ms)
+  Rendered articles/show.html.erb within layouts/application (137.9ms)
+Completed 200 OK in 246ms (Views: 202.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/articles" for ::1 at 2020-09-11 17:24:55 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 74ms (Views: 72.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/12" for ::1 at 2020-09-11 17:24:57 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 12]]
+  ↳ app/views/articles/show.html.erb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 12]]
+  ↳ app/views/articles/show.html.erb:14
+  Rendered collection of articles/_comment.html.erb [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (1.9ms)
+  Rendered articles/show.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 125ms (Views: 122.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tags/2" for ::1 at 2020-09-11 17:25:08 +0300
+Processing by TagsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:7
+  Rendering tags/show.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "taggings" ON "articles"."id" = "taggings"."article_id" WHERE "taggings"."tag_id" = ?[0m  [["tag_id", 2]]
+  ↳ app/views/tags/show.html.erb:4
+  Rendered tags/show.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 145ms (Views: 140.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tags" for ::1 at 2020-09-11 17:25:10 +0300
+Processing by TagsController#index as HTML
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:5
+  Rendered tags/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 116ms (Views: 114.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/tags/2" for ::1 at 2020-09-11 17:25:15 +0300
+Processing by TagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fJZIpl9AV8KdLmGeHop9iY23qlE1WDcIt4L0Wyj00zcZAJubzQt3owG10Hh5zPyJUT8hfgtxlGhVpwNEM+LixA==", "id"=>"2"}
+  [1m[36mTag Load (1.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "taggings" ON "articles"."id" = "taggings"."article_id" WHERE "taggings"."tag_id" = ?[0m  [["tag_id", 2]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mTagging Load (0.2ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."tag_id" = ? AND "taggings"."article_id" IN (?, ?)[0m  [["tag_id", 2], ["article_id", 11], ["article_id", 12]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mTagging Destroy (0.7ms)[0m  [1m[31mDELETE FROM "taggings" WHERE "taggings"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mTagging Destroy (0.2ms)[0m  [1m[31mDELETE FROM "taggings" WHERE "taggings"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mTag Destroy (0.3ms)[0m  [1m[31mDELETE FROM "tags" WHERE "tags"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[35m (86.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+Redirected to http://localhost:3000/tags
+Completed 302 Found in 145ms (ActiveRecord: 89.8ms)
+
+
+Started GET "/tags" for ::1 at 2020-09-11 17:25:16 +0300
+Processing by TagsController#index as HTML
+  Rendering tags/index.html.erb within layouts/application
+  [1m[36mTag Load (6.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/tags/index.html.erb:5
+  Rendered tags/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 123ms (Views: 112.5ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/articles" for ::1 at 2020-09-11 17:25:18 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 71ms (Views: 68.8ms | ActiveRecord: 0.2ms)
+
+
